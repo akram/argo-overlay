@@ -43,7 +43,7 @@ spec:
       automountServiceAccountToken: false
       containers:
       - name: vault-argocd-kustomize
-        command: ["cp /var/run/argocd/argocd-cmp-server /var/run/argocd/argocd && /var/run/argocd/argocd-cmp-server"]
+        command: ["/bin/sh", "-c", "cp /var/run/argocd/argocd-cmp-server /var/run/argocd/argocd && /var/run/argocd/argocd-cmp-server"]
         image: izderadicka/git-kustomize:latest
         securityContext:
           runAsNonRoot: true
