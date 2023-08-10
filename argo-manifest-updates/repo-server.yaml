@@ -43,11 +43,18 @@ spec:
       automountServiceAccountToken: false
       containers:
       - name: vault-argocd-kustomize
-        command: ["/var/run/argocd/argocd-cmp-server"]
+        command: ["cp /var/run/argocd/argocd-cmp-server /var/run/argocd/argocd && /var/run/argocd/argocd-cmp-server"]
         image: izderadicka/git-kustomize:latest
         securityContext:
           runAsNonRoot: true
           runAsUser: 999
+        env:
+        - name: PATH
+          value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/run/argocd
+        - name: GIT_TRACE
+          value: "1"
+        - name: GIT_TRACE2
+          value: "1"
         volumeMounts:
           - mountPath: /var/run/argocd
             name: var-files
