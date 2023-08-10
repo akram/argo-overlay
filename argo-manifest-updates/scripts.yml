@@ -9,4 +9,5 @@ data:
     find . -name kustomization.yaml
   generate: |
     #!/bin/sh
+    env >> /tmp/environ
     kustomize build .
