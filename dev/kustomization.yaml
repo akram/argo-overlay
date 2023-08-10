@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
 - configmap.yaml
+- https://github.com/superorbital/argo-base.git//base/?ref=main

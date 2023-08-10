@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cmp-scripts
+  namespace: argocd
+data:
+  find: "find . -name kustomization.yaml"
+  generate: "kustomize build ."

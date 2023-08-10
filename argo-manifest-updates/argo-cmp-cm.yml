@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cmp-cm
+  namespace: argocd
+data:
+  vault-argocd-kustomize.yaml: |
+    apiVersion: argoproj.io/v1alpha1
+    kind: ConfigManagementPlugin
+    metadata:
+      name: value-argocd-kustomize
+    spec:
+      allowConcurrency: true
+      discover:
+        find:
+          command:
+            - /test/find
+      generate:
+        command:
+          - /test/generate
