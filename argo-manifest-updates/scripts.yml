@@ -6,7 +6,7 @@ metadata:
 data:
   find: |
     #!/bin/sh
-    find . -name kustomization.yaml"
+    find . -name kustomization.yaml
   generate: |
     #!/bin/sh
-    kustomize build ."
+    kustomize build .
